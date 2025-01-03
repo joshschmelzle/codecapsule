@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "codecapsule"
-version = "1.0.2"
+dynamic = ["version"]
 authors = [
     { name="Josh Schmelzle", email="josh@joshschmelzle.com" }
 ]
@@ -45,3 +45,6 @@ target-version = ['py39']
 python_version = "3.9"
 warn_return_any = true
 warn_unused_configs = true
+
+[tool.setuptools.dynamic]
+version = {attr = "codecapsule.__version__"}

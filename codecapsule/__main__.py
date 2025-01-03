@@ -13,6 +13,8 @@ import os
 import sys
 from pathlib import Path
 
+from .version import __version__
+
 
 def is_binary_file(filepath, chunk_size=1024):
     """
@@ -43,7 +45,6 @@ def create_capsule(root_dir, ignore_patterns=None):
         sys.exit(1)
 
     if ignore_patterns is None:
-        # Adjust these patterns as needed.
         ignore_patterns = {
             ".venv",
             "venv",
@@ -52,7 +53,7 @@ def create_capsule(root_dir, ignore_patterns=None):
             "models",
             ".pytest_cache",
             ".mypy_cache",
-            ".pyc",  # Use regex-like pattern for file extensions
+            ".pyc",
             ".pyo",
             ".pyd",
             ".class",
@@ -70,6 +71,12 @@ def create_capsule(root_dir, ignore_patterns=None):
             "env/",
             "venv/",
             "ENV/",
+            "vendors/",
+            "vendors",
+            "vendor/",
+            "vendor",
+            "node_modules/",
+            "node_modules",
         }
     project_files = []
     total_files = 0
@@ -81,12 +88,12 @@ def create_capsule(root_dir, ignore_patterns=None):
         path_str = str(path)
         return any(
             # Check if pattern matches anywhere in the path
-            pattern in path_str or 
+            pattern in path_str or
             # Check if pattern matches file extension (for .pyc, etc.)
-            (pattern.startswith('.') and path_str.endswith(pattern))
+            (pattern.startswith(".") and path_str.endswith(pattern))
             for pattern in ignore_patterns
         )
-        
+
     for path in root.rglob("*"):
 
         # 1. Skip directories
@@ -121,6 +128,7 @@ def create_capsule(root_dir, ignore_patterns=None):
     print(f"Total size: {total_size_bytes:,} bytes ...")
 
     return project_files
+
 
 def prepare_output_path(output_path):
     """
@@ -174,7 +182,7 @@ def main():
         "--version",
         "-v",
         action="version",
-        version="%(prog)s 1.0.2",
+        version="%(prog)s {0}".format(__version__),
         help="Show the program version and exit.",
     )
 
