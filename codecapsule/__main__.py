@@ -58,7 +58,7 @@ def create_capsule(root_dir, ignore_patterns=None):
             ".class",
             ".db",
             ".exe",
-            "project_capsule.json",
+            ".json",
             ".dll",
             ".so",
             ".Python",
@@ -174,7 +174,7 @@ def main():
         "--version",
         "-v",
         action="version",
-        version="%(prog)s 1.0.0",
+        version="%(prog)s 1.0.2",
         help="Show the program version and exit.",
     )
 
