@@ -58,6 +58,7 @@ def create_capsule(root_dir, ignore_patterns=None):
             ".class",
             ".db",
             ".exe",
+            "project_capsule.json",
             ".dll",
             ".so",
             ".Python",
