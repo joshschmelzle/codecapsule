@@ -32,6 +32,9 @@ codecapsule /path/to/your/project
 
 # Save to a specific output file
 codecapsule /path/to/project -o project_capsule.json
+
+# Convert project directory and ignore additional patterns
+codecapsule /path/to/project -i "*.log" -i "temp/"
 ```
 
 ## Filtering and Handling
