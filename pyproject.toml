@@ -10,8 +10,9 @@ authors = [
 ]
 description = "Transform entire projects into portable JSON capsules for easy sharing and LLM processing"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 classifiers = [
+    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -48,3 +49,7 @@ warn_unused_configs = true
 
 [tool.hatch.version]
 path = "codecapsule/version.py"
+
+[tool.pytest.ini_options]
+pythonpath = "."
+testpaths = ["tests"]

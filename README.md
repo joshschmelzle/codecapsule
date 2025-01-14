@@ -84,7 +84,7 @@ BSD-3 License - See `LICENSE` file for details.
 
 ## Requirements
 
-- Python 3.9+
+- Python 3.8+
 - No external dependencies
 
 ## Disclaimer
